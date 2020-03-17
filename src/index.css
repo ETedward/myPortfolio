@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.e-card {
+  margin: 20px;
+}
+
+.e-card-image {
+  border-radius: 10px;
+  width: 300px;
+  height: 480px;
+  box-shadow: 0px, 0px, 3px, 1px, #ccc;
+}
+
+.e-card-info {
+  margin-top: 10px
+}
+
+.e-card-title {
+  font-size: 24px;
+  margin: 8px;
+}

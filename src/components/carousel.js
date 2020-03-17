@@ -3,9 +3,9 @@ import Card from './card.js'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-import abc from '../images/ET_logo.png'
-import def from '../images/ET_logo.png'
-import ghk from '../images/ET_logo.png'
+import abc from '../images/giraffe.jpg'
+import def from '../images/color.png'
+import ghk from '../images/int.png'
 
 class Carousel extends React.Component
 {
@@ -42,6 +42,7 @@ class Carousel extends React.Component
     }
 
     handleCardClick = (id, card) => {
+        console.log(id);
         let items = [...this.state.items];
         items[id].selected = items[id].selected ? false : true;
 
@@ -58,7 +59,7 @@ class Carousel extends React.Component
 
     makeItems = (items) => {
         return items.map(item => {
-            return <Card item= {item} onClick= {(event => this.handleCardClick(item.id, event))} key = {item.id} />
+            return <Card item= {item} click = {(event => this.handleCardClick(item.id, event))} key = {item.id} />
         })
     }
 

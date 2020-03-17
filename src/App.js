@@ -14,10 +14,10 @@ import Container from 'react-bootstrap/Container';
 
 import Footer from './components/Footer.js';
 import HomePage from './pages/HomePage.js';
-import AboutPage from './pages/About.js';
 import PortfolioPage from './pages/Portfolio.js';
 import ContactPage from './pages/Contact.js';
 
+import logo from './images/ET_logo.png'
 
 class App extends React.Component {
   constructor(props)
@@ -26,20 +26,17 @@ class App extends React.Component {
     this.state = { 
       title: 'Edward Time',
       headerLinks: [
-       { title: 'About', path: '/about' },
        { title: 'Portfolio', path: '/portfolio'},
        { title: 'Contact', path: '/contact'},
       ],
       home: {
-        title: 'Script => Stories',
-        subtitle: 'Code the Truth to Light',
-        text: 'checkout my projects below'
-      },
-      about: {
-        title: 'About Me'
+        title: 'HELLO',
+        subtitle: 'My name is Edward',
+        text: 'Code the Truth to Light'
       },
       portfolio: {
-        title: 'View my work!'
+        title: 'Scripts & Stories',
+        text: 'checkout my projects below'
       },
       contact: {
         title: 'Let\'s talk!'
@@ -50,24 +47,26 @@ class App extends React.Component {
   {
     return (
       <Router> 
-        <Container fluid = {true}>
+        <Container fluid  = {true}>
           <Navbar className = "border-bottom" bg = "transparent" expand = "lg">
-            <NavbarBrand> Edward Tian </NavbarBrand> 
+            
+            <NavbarBrand> 
+              <Link className = "nav-Link" to = "/"> 
+              <img id="myLogo" src={logo} class="how-img img-responsive"/>
+              </Link>
+            </NavbarBrand> 
             <Navbar.Toggle className = "border-0" aria-controls = "navbar-toggle"/>
             <NavbarCollapse id = "navbar-toggle">
               <Nav className = "ml-auto">
-                <Link className = "nav-link" to = "/"> Home </Link>
-                <Link className = "nav-link" to = "/about"> About </Link>
+                <Link className = "nav-link" to = "/"> About </Link>
                 <Link className = "nav-link" to = "/portfolio"> Portfolio </Link>
                 <Link className = "nav-link" to = "/contact"> Contact </Link>
               </Nav>
             </NavbarCollapse>
           </Navbar>
           
-        Hello People
-        <Route path = "/" exact render={() => <HomePage title= {this.state.home.title} text = {this.state.home.text}/> } />
-        <Route path = "/about" exact render={() => <AboutPage title= {this.state.about.title} text = {this.state.about.text}/> } />
-        <Route path = "/portfolio" exact render={() => <PortfolioPage title= {this.state.portfolio.title} text = {this.state.portfolio.text}/> } />
+        <Route path = "/" exact render={() => <HomePage title= {this.state.home.title} subtitle = {this.state.home.subtitle} text = {this.state.home.text}/> } />
+        <Route path = "/portfolio" exact render={() => <PortfolioPage title= {this.state.portfolio.title} subtitle = {this.state.portfolio.subtitle} text = {this.state.portfolio.text}/> } />
         <Route path = "/contact" exact render={() => <ContactPage title= {this.state.contact.title} text = {this.state.contact.text}/> } />
         <Footer/>
         
