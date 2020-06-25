@@ -37,9 +37,34 @@ class ContactPage extends React.Component
     handleSubmit = (event) =>
     {
         event.preventDefault();
+        console.log(event.target);
         this.setState({
             disabled: true,
-            sent: true
+        })
+
+        // this.state is what we are passing in
+        Axios.post('http://localhost:3030/api/mail', this.state)
+        .then(res => {
+            if (res.data.success)
+            {
+                this.setState({
+                    disabled: false,
+                    sent: true
+                })
+            }
+            else 
+            {
+                this.setState({
+                    disabled: false,
+                    sent: false
+                })
+            }
+        })
+        .catch(err => {
+            this.setState({
+                disabled: false,
+                emailSent: false
+            })
         })
     }
 
